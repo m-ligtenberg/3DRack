@@ -1,0 +1,50 @@
+{
+  "name": "eurorack-3d-modeler",
+  "version": "1.0.0",
+  "description": "AI-Powered Eurorack Module Design and 3D Modeling Tool",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'Static site, no build needed'",
+    "start": "npx http-server .",
+    "dev": "npx vite",
+    "lint": "eslint src/**/*.js",
+    "typecheck": "npx tsc --noEmit",
+    "test": "npx jest"
+  },
+  "keywords": [
+    "eurorack",
+    "3d-modeling",
+    "synthesizer",
+    "ai-generation"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.128.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.128.0",
+    "eslint": "^7.32.0",
+    "http-server": "^14.1.0",
+    "jest": "^27.2.1",
+    "typescript": "^4.4.3",
+    "vite": "^2.6.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "module": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  }
+}
