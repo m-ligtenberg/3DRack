@@ -1,24 +1,38 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EuroRack 3D Modeler</title>
     
-    <\!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Absolute path for CSS -->
+    <link rel="stylesheet" href="/style.css">
     
-    <\!-- External Libraries -->
+    <!-- Debug CSS Loading -->
+    <style>
+        body { 
+            background-color: red; 
+            color: white; 
+            font-family: sans-serif; 
+        }
+    </style>
+    
+    <!-- External Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <\!-- Error Notification -->
+    <!-- CSS Loading Debug Message -->
+    <div id="css-debug">
+        CSS NOT LOADED. Check file path and Vercel configuration.
+    </div>
+
+    <!-- Error Notification -->
     <div id="errorNotification" class="notification error"></div>
 
-    <\!-- Main Application Container -->
+    <!-- Main Application Container -->
     <div class="app-container">
-        <\!-- Navigation -->
+        <!-- Navigation -->
         <nav class="main-nav">
             <div class="nav-item" data-mode="design">Design</div>
             <div class="nav-item" data-mode="project">Projects</div>
@@ -28,10 +42,10 @@
             </button>
         </nav>
 
-        <\!-- Design Section -->
+        <!-- Design Section -->
         <section id="designSection" class="app-section active">
             <div class="sidebar">
-                <\!-- Module Design Controls -->
+                <!-- Module Design Controls -->
                 <div class="module-controls">
                     <input type="text" id="moduleName" placeholder="Module Name">
                     <input type="number" id="moduleWidth" placeholder="Width (HP)">
@@ -39,34 +53,34 @@
                     <input type="number" id="moduleDepth" placeholder="Depth (mm)">
                 </div>
 
-                <\!-- Image Upload -->
+                <!-- Image Upload -->
                 <div id="uploadArea" class="upload-area">
                     <input type="file" id="fileInput" multiple accept="image/*">
                     <p>Drag and drop or click to upload images</p>
                 </div>
 
-                <\!-- Image Gallery -->
+                <!-- Image Gallery -->
                 <div id="imageGallery" class="image-gallery"></div>
             </div>
 
-            <\!-- 3D Viewer -->
+            <!-- 3D Viewer -->
             <div id="threeContainer" class="three-container"></div>
         </section>
 
-        <\!-- Project Section -->
+        <!-- Project Section -->
         <section id="projectSection" class="app-section">
             <div class="project-list">
-                <\!-- Project management UI -->
+                <!-- Project management UI -->
             </div>
         </section>
 
-        <\!-- AI Generation Section -->
+        <!-- AI Generation Section -->
         <section id="aiGenerationSection" class="app-section">
             <div class="ai-generation-controls">
                 <h2>AI Model Generation</h2>
                 <div id="aiImagePreview" class="image-preview"></div>
                 
-                <\!-- Dimension Inputs -->
+                <!-- Dimension Inputs -->
                 <div class="dimension-inputs">
                     <input type="number" id="aiModelWidth" placeholder="Width (mm)">
                     <input type="number" id="aiModelHeight" placeholder="Height (mm)">
@@ -78,7 +92,7 @@
         </section>
     </div>
 
-    <\!-- AI Generation Modal -->
+    <!-- AI Generation Modal -->
     <div id="aiGenerationModal" class="modal hidden">
         <div class="modal-content">
             <h2>Generating AI Model</h2>
@@ -89,8 +103,21 @@
         </div>
     </div>
 
-    <\!-- Application Scripts -->
-    <script type="module" src="src/main.js"></script>
+    <!-- Application Scripts -->
+    <script type="module" src="/src/main.js"></script>
+
+    <!-- CSS Loading Debug Script -->
+    <script>
+        // Check if CSS is loaded
+        window.addEventListener('load', () => {
+            const cssDebug = document.getElementById('css-debug');
+            const bodyStyles = window.getComputedStyle(document.body);
+            
+            if (bodyStyles.backgroundColor !== 'rgb(255, 0, 0)') {
+                cssDebug.textContent = 'CSS LOADED SUCCESSFULLY';
+                cssDebug.style.color = 'green';
+            }
+        });
+    </script>
 </body>
 </html>
-EOF < /dev/null

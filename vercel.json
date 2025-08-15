@@ -10,14 +10,34 @@
         {
             "src": "/(.*)",
             "dest": "/index.html"
-        }
-    ],
-    "routes": [
+        },
+        {
+            "src": "/style.css",
+            "dest": "/style.css"
+        },
         {
             "src": "/src/(.*)",
-            "headers": {
-                "Cache-Control": "public, max-age=31536000, immutable"
-            }
+            "dest": "/src/$1"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/style.css",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/src/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
         }
     ]
 }
